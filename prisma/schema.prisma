@@ -1,0 +1,61 @@
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dua_main.sqlite"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model category {
+  id              Int          @id @default(autoincrement())
+  cat_id		  Int
+  cat_name_bn     String?
+  cat_name_en     String?
+  no_of_subcat    Int
+  no_of_dua       Int
+  cat_icon        String?
+
+  // Relations
+  sub_categories  sub_category[] // One-to-Many relation with `sub_category`
+  duas            dua[]          // One-to-Many relation with `dua`
+}
+
+model sub_category {
+  id              Int          @id @default(autoincrement())
+  cat_id          Int
+  subcat_name_bn  String?
+  subcat_name_en  String?
+  no_of_dua       Int
+
+  // Relations
+  category        category      @relation(fields: [cat_id], references: [id]) // Many-to-One relation with `category`
+  duas            dua[]         // One-to-Many relation with `dua`
+}
+
+model dua {
+  id                Int      @id @default(autoincrement())
+  cat_id            Int
+  subcat_id         Int
+  dua_id            Int
+  dua_name_bn       String?
+  dua_name_en       String?
+  top_bn            String?
+  top_en            String?
+  dua_arabic        String?
+  dua_indopak       String?
+  clean_arabic      String?
+  transliteration_bn String?
+  transliteration_en String?
+  translation_bn    String?
+  translation_en    String?
+  bottom_bn         String?
+  bottom_en         String?
+  refference_bn     String?
+  refference_en     String?
+  audio             String?
+
+  // Relations
+  category          category  @relation(fields: [cat_id], references: [id])   // Many-to-One relation with `category`
+  sub_category      sub_category @relation(fields: [subcat_id], references: [id]) // Many-to-One relation with `sub_category`
+}
