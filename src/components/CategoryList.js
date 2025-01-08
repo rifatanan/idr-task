@@ -15,7 +15,7 @@ const CategoryList = ({ data, subResponse }) => {
     };
 
     return (
-        <div>
+        <div className="max-h-[550px] overflow-scroll">
             {categoryData &&
                 categoryData.map((item, index) => (
                     <div key={index} className="flex flex-col w-full">

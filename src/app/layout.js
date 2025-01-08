@@ -48,12 +48,12 @@ export default function RootLayout({ children }) {
 
     return (
         <html lang="en">
-            <body className="lg:p-[20px] flex w-full gap-[22px]  flex-col lg:flex-row min-h-screen">
+            <body className="lg:p-[20px] flex w-full gap-[22px] flex-col lg:flex-row min-h-screen absolute">
                 <div className="lg:w-[100px] w-full lg:h-auto h-[50px] fixed bottom-[20px] lg:static ">
                     <SideNavBar />
                 </div>
 
-                <main className="flex flex-col gap-2">
+                <main className="flex flex-col gap-2 w-full">
                     <NavBar />
                     <AppContext.Provider
                         value={{

@@ -33,7 +33,7 @@ const Dua = () => {
         <div
             className={`${
                 toggleDua === false ? 'hidden' : 'visible'
-            } w-[690px] flex flex-col gap-[10px]`}
+            } w-[690px] flex flex-col gap-[10px] relative`}
         >
             <div className="bg-white rounded-[3px] px-[30px] py-[15px] flex flex-col gap-[10px]">
                 <p>
@@ -100,7 +100,10 @@ const Dua = () => {
                         </div>
                         <div className="flex items-center justify-between">
                             <div className="w-[44px] h-[44px] bg-[#1FA45B] flex justify-center items-center rounded-full">
-                                <audio ref={audioRef} src={item.audio}></audio>
+                                <audio
+                                    ref={audioRef}
+                                    src="https://api.duaruqyah.com/duaaudiofinal/782.mp3"
+                                ></audio>
                                 <button onClick={togglePlayPause}>
                                     <Image
                                         width={23}
