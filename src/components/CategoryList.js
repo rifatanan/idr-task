@@ -9,14 +9,13 @@ const CategoryList = ({ data, subResponse }) => {
     const [activeIndex, setActiveIndex] = useState(null);
 
     const { categoryData } = useContext(AppContext);
-    console.log('cat:', categoryData);
 
     const handleClick = index => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
     return (
-        <div>
+        <div className="max-h-[550px] overflow-scroll">
             {categoryData &&
                 categoryData.map((item, index) => (
                     <div key={index} className="flex flex-col w-full">
@@ -55,10 +54,13 @@ const CategoryList = ({ data, subResponse }) => {
                                 </div>
                             </div>
                         </div>
-                        <SubCategory id={item.cat_id} />
+                        <SubCategory
+                            id={item.cat_id}
+                            index={index}
+                            activeIndex={activeIndex}
+                        />
                     </div>
                 ))}
-            a
         </div>
     );
 };

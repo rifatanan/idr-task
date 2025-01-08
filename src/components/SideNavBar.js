@@ -9,7 +9,7 @@ import { ImagesList } from '@/lib/Images';
 const SideNavBar = () => {
     const [currentIndex, setCurrentIndex] = useState(null);
     return (
-        <div className="w-full lg:w-[100px] flex lg:flex-col lg:gap-y-[50px] lg:p-[22px] shadow-lg bg-slate-200 lg:bg-white rounded-t-[40px] items-center">
+        <div className="w-full lg:w-[90px] flex lg:flex-col lg:gap-y-[50px] h-[760px] lg:p-[22px] shadow-lg bg-slate-200 fixed lg:bg-white rounded-[24px] items-center">
             <div className="hidden lg:flex w-[57px] h-[56px]">
                 <Link href={'/'}>
                     <Image
