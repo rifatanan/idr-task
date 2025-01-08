@@ -9,6 +9,9 @@ export default function RootLayout({ children }) {
     const [categoryData, setCategoryData] = useState(null);
     const [subCategoryData, setSubCategoryData] = useState(null);
     const [duaData, setDuaData] = useState(null);
+    const [toggleDua, setToggleDua] = useState(false);
+    const [indexDua, setIndexDua] = useState(0);
+    const [subCategoryTitle, setSubCategoryTitle] = useState('');
 
     useEffect(() => {
         (async () => {
@@ -35,8 +38,8 @@ export default function RootLayout({ children }) {
                 const duaJson = await responseDua.json();
 
                 setCategoryData(categoryJson.result);
-                setSubCategoryData(subCategoryJson);
-                setDuaData(duaJson);
+                setSubCategoryData(subCategoryJson.result);
+                setDuaData(duaJson.result);
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -57,6 +60,12 @@ export default function RootLayout({ children }) {
                             categoryData,
                             subCategoryData,
                             duaData,
+                            toggleDua,
+                            setToggleDua,
+                            indexDua,
+                            setIndexDua,
+                            subCategoryTitle,
+                            setSubCategoryTitle,
                         }}
                     >
                         {children}
